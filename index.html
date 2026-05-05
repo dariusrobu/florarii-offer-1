@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petale și Poveste | Emoții livrate sub formă de flori | Sibiu</title>
+    <meta name="description" content="Florărie artizanală în Sibiu. Oferim buchete custom, aranjamente pentru nunți, decor evenimente și abonamente florale de lux.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-bg: #FDF5F2;
+            --accent: #4A5D4E;
+            --secondary-accent: #8E735B;
+            --text-main: #1A1A1A;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --display-font: 'Cormorant Garamond', serif;
+            --body-font: 'Syne', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --section-padding: 120px 5%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            font-family: var(--body-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .display-serif {
+            font-family: var(--display-font);
+            font-weight: 500;
+            line-height: 1.1;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-family: var(--body-font);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(74, 93, 78, 0.2);
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 5%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 15px 5%;
+            background-color: rgba(253, 245, 242, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            height: 45px;
+            transition: var(--transition);
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .wordmark {
+            font-family: var(--display-font);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Burger Menu */
+        .burger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 2px;
+            background-color: var(--accent);
+            margin: 5px;
+            transition: var(--transition);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--primary-bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            z-index: 999;
+            transition: 0.6s cubic-bezier(0.77, 0.2, 0.05, 1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            font-family: var(--display-font);
+            font-size: 2.5rem;
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('imgs/hero.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .hero p {
+            font-family: var(--body-font);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 40px;
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.5s;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.8s;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* About Section */
+        .about {
+            padding: var(--section-padding);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-img {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            max-width: 500px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-family: var(--display-font);
+            font-size: 3rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-light);
+        }
+
+        /* Services Section */
+        .services {
+            padding: var(--section-padding);
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header span {
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            margin-top: 10px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--primary-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .service-card:nth-child(2) {
+            margin-top: 60px;
+        }
+
+        .service-card:nth-child(3) {
+            margin-top: 120px;
+        }
+
+        .service-img {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.8s var(--transition);
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+
+        .service-info {
+            padding: 30px;
+        }
+
+        .service-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .service-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .details-link {
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .details-link:hover {
+            gap: 15px;
+            color: var(--accent);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: var(--section-padding);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 300px;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item::after {
+            content: '+';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: var(--white);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: var(--section-padding);
+            background-color: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            padding: 50px;
+            background: var(--primary-bg);
+            border-radius: 4px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .client-info img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .client-details h4 {
+            font-size: 1.25rem;
+            margin-bottom: 2px;
+        }
+
+        .client-details span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .quote {
+            font-family: var(--display-font);
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.4;
+            color: var(--text-main);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            padding: 100px 5%;
+            background-color: var(--accent);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-banner p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: var(--section-padding);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+        }
+
+        .contact-info h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+
+        .contact-details {
+            margin-top: 40px;
+        }
+
+        .contact-method {
+            margin-bottom: 30px;
+        }
+
+        .contact-method span {
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .contact-method p {
+            font-size: 1.4rem;
+            font-family: var(--display-font);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group label {
+            display: none;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            font-family: var(--body-font);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .contact-form input.invalid, .contact-form textarea.invalid {
+            border-bottom: 1px solid #D9534F;
+        }
+
+        .error-msg {
+            color: #D9534F;
+            font-size: 0.75rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(74, 93, 78, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .success-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 2;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            box-shadow: inset 0px 0px 0px #fff;
+            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+            margin-bottom: 30px;
+        }
+
+        .checkmark__circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: #fff;
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+
+        .checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+
+        @keyframes stroke { to { stroke-dashoffset: 0; } }
+        @keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale3d(1.1, 1.1, 1); } }
+        @keyframes fill { 100% { box-shadow: inset 0px 0px 0px 30px rgba(255,255,255,0); } }
+
+        /* Footer */
+        footer {
+            padding: 80px 5% 40px;
+            background-color: var(--primary-bg);
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h4 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .footer-brand p {
+            color: var(--text-light);
+            max-width: 300px;
+        }
+
+        .footer-links h5, .footer-contact h5 {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-icons svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent);
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover svg {
+            transform: translateY(-3px);
+            fill: var(--secondary-accent);
+        }
+
+        .copyright {
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80%;
+            position: relative;
+        }
+
+        .lightbox-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            font-size: 2.5rem;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            :root {
+                --section-padding: 80px 5%;
+            }
+            .about {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .about-img {
+                height: 400px;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .service-card:nth-child(2), .service-card:nth-child(3) {
+                margin-top: 0;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+            }
+            .contact {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta .btn {
+                display: none;
+            }
+            .burger {
+                display: block;
+            }
+            .section-header h2, .about-content h2, .contact-info h2 {
+                font-size: 2.5rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .stats {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .cta-banner h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <img src="imgs/logo.png?v=1.1" alt="Petale și Poveste Logo" id="logo-img" onerror="this.outerHTML='<div class=\'wordmark\'>Petale și Poveste</div>'">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Acasă</a></li>
+            <li><a href="#services" class="nav-link">Servicii</a></li>
+            <li><a href="#about" class="nav-link">Despre</a></li>
+            <li><a href="#gallery" class="nav-link">Galerie</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="#contact" class="btn btn-primary">Cere ofertă</a>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#home" class="mobile-link">Acasă</a>
+        <a href="#services" class="mobile-link">Servicii</a>
+        <a href="#about" class="mobile-link">Despre</a>
+        <a href="#gallery" class="mobile-link">Galerie</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Emoții livrate sub formă de flori</h1>
+            <p>Descoperă rafinamentul floral în inima Sibiului. Transformăm momentele tale în amintiri memorabile prin design floral artizanal.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary">Contactează-ne</a>
+                <a href="#services" class="btn btn-secondary">Află mai mult</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-img reveal">
+            <img src="imgs/about.png" alt="Atelier Petale și Poveste" loading="lazy">
+        </div>
+        <div class="about-content reveal">
+            <h2>Povestea noastră</h2>
+            <p>Născut din pasiune pentru frumos și autentic, Petale și Poveste este un atelier floral artizanal dedicat celor care apreciază emoția și designul organic.</p>
+            <p>Fiecare aranjament este o piesă unică, creată cu flori atent selecționate de la cultivatori locali și internaționali de top.</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="150">0</span>
+                    <span class="stat-label">Clienți mulțumiți</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="8">0</span>
+                    <span class="stat-label">Ani experiență</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="98">0</span>
+                    <span class="stat-label">Satisfacție %</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header reveal">
+            <span>Specialitatea Noastră</span>
+            <h2>Servicii Exclusive</h2>
+        </div>
+        <div class="services-grid container">
+            <!-- Service 1 -->
+            <div class="service-card reveal">
+                <div class="service-img">
+                    <img src="imgs/service-1.png" alt="Buchete Custom" loading="lazy">
+                </div>
+                <div class="service-info">
+                    <h3>Buchete Custom</h3>
+                    <p>Design floral personalizat, creat special pentru a reflecta personalitatea și emoția celui care le primește.</p>
+                    <a href="#contact" class="details-link">Detalii <span>&rarr;</span></a>
+                </div>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card reveal">
+                <div class="service-img">
+                    <img src="imgs/service-2.png" alt="Aranjamente Nuntă" loading="lazy">
+                </div>
+                <div class="service-info">
+                    <h3>Aranjamente Nuntă</h3>
+                    <p>De la buchetul miresei la decorul întregii locații, creăm o atmosferă magică pentru cel mai important eveniment.</p>
+                    <a href="#contact" class="details-link">Detalii <span>&rarr;</span></a>
+                </div>
+            </div>
+            <!-- Service 3 -->
+            <div class="service-card reveal">
+                <div class="service-img">
+                    <img src="imgs/service-3.png" alt="Abonamente Florale" loading="lazy">
+                </div>
+                <div class="service-info">
+                    <h3>Abonamente Florale</h3>
+                    <p>Luxul prospețimii direct la tine acasă sau la birou, prin livrări recurente de flori de sezon.</p>
+                    <a href="#contact" class="details-link">Detalii <span>&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="section-header reveal">
+            <span>Inspirație</span>
+            <h2>Galerie Recentă</h2>
+        </div>
+        <div class="gallery-grid container reveal">
+            <div class="gallery-item"><img src="imgs/gallery-1.png" alt="Floral Design 1" loading="lazy"></div>
+            <div class="gallery-item"><img src="imgs/gallery-2.png" alt="Floral Design 2" loading="lazy"></div>
+            <div class="gallery-item"><img src="imgs/gallery-3.png" alt="Floral Design 3" loading="lazy"></div>
+            <div class="gallery-item"><img src="imgs/gallery-4.png" alt="Floral Design 4" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header reveal">
+            <span>Gânduri bune</span>
+            <h2>Ce spun clienții</h2>
+        </div>
+        <div class="testimonial-grid container">
+            <div class="testimonial-card reveal">
+                <div class="client-info">
+                    <img src="imgs/testimonial-1.png" alt="Maria Popescu" loading="lazy">
+                    <div class="client-details">
+                        <h4>Maria Popescu</h4>
+                        <span>Designer Interior</span>
+                    </div>
+                </div>
+                <p class="quote">"Bloom&Co a transformat complet recepția casei mele. Atenția la detalii și calitatea florilor sunt de neegalat în Cluj."</p>
+            </div>
+            <div class="testimonial-card reveal" style="transition-delay: 200ms;">
+                <div class="client-info">
+                    <div class="client-details" style="margin-left: 0;">
+                        <h4>Andrei Ionescu</h4>
+                        <span>Manager Evenimente</span>
+                    </div>
+                </div>
+                <p class="quote">"Pentru evenimentele noastre corporate, Bloom&Co este singura alegere. Profesionalism și creativitate la fiecare pas."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner reveal">
+        <div class="container">
+            <h2>Pregătit să începem?</h2>
+            <p>Lasă-ne un mesaj și hai să creăm ceva spectaculos împreună.</p>
+            <a href="#contact" class="btn btn-secondary" style="border-color: white; color: white;">Cere o ofertă acum</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-info reveal">
+            <h2>Contactează-ne</h2>
+            <p>Suntem aici pentru a-ți oferi consultanță florală de specialitate.</p>
+            <div class="contact-details">
+                <div class="contact-method">
+                    <span>Telefon</span>
+                    <p>0722 987 654</p>
+                </div>
+                <div class="contact-method">
+                    <span>Email</span>
+                    <p>atelier@petalesipoveste.ro</p>
+                </div>
+                <div class="contact-method">
+                    <span>Adresă</span>
+                    <p>Centrul Istoric, Sibiu, România</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form-container reveal">
+            <form class="contact-form" id="bloom-form">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Nume complet" required>
+                    <div class="error-msg">Vă rugăm să introduceți numele.</div>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                    <div class="error-msg">Vă rugăm să introduceți un email valid.</div>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder="Telefon" required>
+                    <div class="error-msg">Vă rugăm să introduceți numărul de telefon.</div>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" rows="5" placeholder="Mesaj (Ex: Doresc o ofertă pentru nuntă...)" required></textarea>
+                    <div class="error-msg">Vă rugăm să scrieți un mesaj.</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Trimite Mesajul</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid container">
+            <div class="footer-brand">
+                <img src="imgs/logo.png?v=1.1" alt="Petale și Poveste Logo" style="height: 40px; margin-bottom: 20px;">
+                <p>Emoții livrate sub formă de flori. Design floral artizanal în inima orașului Sibiu.</p>
+                <div class="social-icons">
+                    <a href="#">
+                        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#">
+                        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h5>Link-uri Rapide</h5>
+                <ul>
+                    <li><a href="#home">Acasă</a></li>
+                    <li><a href="#services">Servicii</a></li>
+                    <li><a href="#about">Despre noi</a></li>
+                    <li><a href="#gallery">Galerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h5>Informații</h5>
+                <ul>
+                    <li>Luni - Vineri: 09:00 - 19:00</li>
+                    <li>Sâmbătă: 10:00 - 16:00</li>
+                    <li>Duminică: Închis</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Petale și Poveste. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <!-- Success Overlay -->
+    <div class="success-overlay" id="success-overlay">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+        <h3>Mesaj trimis cu succes!</h3>
+        <p>Vă vom contacta în cel mai scurt timp.</p>
+        <button class="btn btn-secondary" style="margin-top: 30px; border-color: white; color: white;" onclick="closeSuccess()">Închide</button>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <img src="" alt="Gallery Image" class="lightbox-img">
+        </div>
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const burger = document.querySelector('.burger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        burger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            burger.classList.toggle('toggle');
+            // Animate lines
+            const lines = burger.querySelectorAll('div');
+            if(mobileMenu.classList.contains('active')) {
+                lines[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+                lines[1].style.opacity = '0';
+                lines[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+            } else {
+                lines[0].style.transform = 'none';
+                lines[1].style.opacity = '1';
+                lines[2].style.transform = 'none';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                const lines = burger.querySelectorAll('div');
+                lines[0].style.transform = 'none';
+                lines[1].style.opacity = '1';
+                lines[2].style.transform = 'none';
+            });
+        });
+
+        // Reveal animations on scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Counter animation
+        const stats = document.querySelectorAll('.stat-number');
+        const statsSection = document.querySelector('.stats');
+        let counterStarted = false;
+
+        const startCounters = () => {
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                let count = 0;
+                const increment = target / 50;
+                const updateCount = () => {
+                    if (count < target) {
+                        count += increment;
+                        stat.innerText = Math.ceil(count) + (stat.getAttribute('data-target') > 90 && stat.getAttribute('data-target') < 100 ? '%' : '+');
+                        if (stat.getAttribute('data-target') == '98') stat.innerText = Math.ceil(count) + '%';
+                        if (stat.getAttribute('data-target') == '8') stat.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        stat.innerText = target + (stat.getAttribute('data-target') > 90 && stat.getAttribute('data-target') < 100 ? '%' : '+');
+                        if (stat.getAttribute('data-target') == '98') stat.innerText = target + '%';
+                        if (stat.getAttribute('data-target') == '8') stat.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !counterStarted) {
+                counterStarted = true;
+                startCounters();
+            }
+        }, { threshold: 0.5 });
+
+        if(statsSection) statsObserver.observe(statsSection);
+
+        // Lightbox
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.querySelector('.lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                lightboxImg.src = imgSrc;
+                lightbox.classList.add('active');
+            });
+        });
+
+        const closeLightbox = () => lightbox.classList.remove('active');
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Form Validation & Submission
+        const form = document.getElementById('bloom-form');
+        const successOverlay = document.getElementById('success-overlay');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let isValid = true;
+
+            const inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                const error = input.nextElementSibling;
+                if (!input.value.trim()) {
+                    input.classList.add('invalid');
+                    if(error) error.style.display = 'block';
+                    isValid = false;
+                } else if (input.type === 'email' && !validateEmail(input.value)) {
+                    input.classList.add('invalid');
+                    if(error) error.style.display = 'block';
+                    isValid = false;
+                } else {
+                    input.classList.remove('invalid');
+                    if(error) error.style.display = 'none';
+                }
+            });
+
+            if (isValid) {
+                successOverlay.classList.add('active');
+                form.reset();
+            }
+        });
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        window.closeSuccess = () => {
+            successOverlay.classList.remove('active');
+        };
+
+        // ScrollSpy
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
